@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {BrowserRouter} from 'react-router-dom';
 import Private from "./components/Private";
 import Public from "./components/Public";
 
@@ -10,12 +11,12 @@ const App = () => {
     token &&  setIsAuth(true);
   }, []);
   
-  return <div>
+  return <BrowserRouter>
           {isAuth ?
             <Private setIsAuth={setIsAuth} /> 
           : 
             <Public setIsAuth={setIsAuth} />
-          }</div>;
+          }</BrowserRouter>;
 };
 
 export default App;
