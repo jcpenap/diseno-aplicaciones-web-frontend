@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-const Login = () =>{
+const Login = (props) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
@@ -18,7 +18,10 @@ const Login = () =>{
             body: JSON.stringify(user)
         })
         .then(res=>res.json())
-        .then(json=>console.log(`Usuario ${json.name} autenticado`))
+        .then(json=>{
+            localStorage.setItem('token', json.token);
+            props.setIsAuth(true);
+        })
         .catch(err=>console.log("Usuario no existe"));
     };
 
@@ -46,7 +49,7 @@ const Login = () =>{
                 <p><button
                     onClick={()=>{ handleClick() }} 
                     type="button"
-                    >Iniciar sesión</button></p>
+                    >Login</button></p>
             </form>
         </div>
     )
