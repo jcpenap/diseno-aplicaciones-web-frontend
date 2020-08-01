@@ -1,12 +1,15 @@
-import React from 'react';
-import Login from './components/Login';
+import React, {useState} from "react";
+import Private from "./components/Private";
+import Public from "./components/Public";
 
 const App = () => {
-  return (
-    <div>
-      <Login />
-    </div>
-  );
-}
+  const [isAuth, setIsAuth] = useState(true);
+  return <div>
+          {isAuth ?
+            <Private /> 
+          : 
+            <Public />
+          }</div>;
+};
 
 export default App;
