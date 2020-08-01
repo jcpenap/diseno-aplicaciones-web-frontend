@@ -20,6 +20,12 @@ const Login = (props) => {
         })
         .then(res=>res.json())
         .then(json=>{
+            const user = {
+                id: json.id,
+                name: json.name,
+                username: json.username
+            };
+            localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem('token', json.token);
             props.setIsAuth(true);
         })
