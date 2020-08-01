@@ -1,4 +1,5 @@
 import React from "react";
+import Tweets from "./Tweets";
 
 const Private = (props) => {
   const logout = () => {
@@ -11,6 +12,8 @@ const Private = (props) => {
           type="button" 
           onClick={()=>{logout()}}
         >Logout</button></p>
+      <Tweets />
+
   </div>;
 };
 

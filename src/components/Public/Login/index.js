@@ -9,7 +9,8 @@ const Login = (props) => {
             username,
             password
         };
-        const url = "http://localhost/api/users/login";
+        const api = process.env.REACT_APP_API_URL;
+        const url = `${api}/users/login`;
         fetch(url, {
             method: "POST",
             headers:{
